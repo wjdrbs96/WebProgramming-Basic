@@ -3,7 +3,7 @@
 <%
 String srchText = request.getParameter("srchText");
 if (srchText == null) srchText = "";
-List<Student> list = StudentDAO2.findByName(srchText);
+List<User> list = UserDAO3.findByName(srchText);
 %>
 <!DOCTYPE html>
 <html>
@@ -36,19 +36,19 @@ List<Student> list = StudentDAO2.findByName(srchText);
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>학번</th>
+            <th>고유번호</th>
+            <th>유저아이디</th>
             <th>이름</th>
-            <th>학과</th>
-            <th>학년</th>
+            <th>학과번호</th>
         </tr>
     </thead>
     <tbody>
-        <% for (Student std : list) { %>
+        <% for (User user : list) { %>
             <tr>
-                <td><%= std.getStudentNumber() %></td>
-                <td><%= std.getName() %></td>
-                <td><%= std.getDepartmentName() %></td>
-                <td><%= std.getYear() %></td>
+                <td><%= user.getId() %></td>
+                <td><%= user.getUserid() %></td>
+                <td><%= user.getName() %></td>
+                <td><%= user.getDepartmentId() %></td>
             </tr>
         <% } %>
     </tbody>
