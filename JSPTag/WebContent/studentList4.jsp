@@ -9,6 +9,10 @@ String srchText = request.getParameter("srchText");
 List<Student> list = StudentDAO2.findByName(srchText, currentPage, pageSize);
 int recordCount = StudentDAO2.count(srchText);
 
+String pg = request.getParameter("pg");
+if (pg != null) {
+	currentPage = Integer.parseInt(pg);
+}
 // 필요한 코드 작성
 %>
 <!DOCTYPE html>

@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, lecture1.*" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <%
 int currentPage = 1;
 int pageSize = 10;
 
 String pg = request.getParameter("pg");
-if (pg != null) {
-	currentPage = Integer.parseInt(pg);
-}
+if (pg != null) currentPage = Integer.parseInt(pg);
 
-List<Student> list = StudentDAO.findAll(currentPage,pageSize);
-// 필요한 코드 작성
-
-int recordCount = StudentDAO.count();
-int pageCount = (int)Math.ceil((double)recordCount / pageSize); // 올림
+List<Student> list = StudentDAO2.findAll(currentPage, pageSize);
+int recordCount = StudentDAO2.count();
 %>
 <!DOCTYPE html>
 <html>
@@ -27,12 +23,18 @@ int pageCount = (int)Math.ceil((double)recordCount / pageSize); // 올림
       body { font-family: 굴림체; }
       thead th { background-color: #eee; }
       table.table { width: 700px; }
+      div#create { width: 700px; }
+      div#create a { float: right; margin-bottom: 5px; }
   </style>
 </head>
 <body>
 
 <div class="container">
 <h1>학생목록</h1>
+
+<div id="create">
+  <a class="btn btn-primary btn-sm" href="createStudent1.jsp">학생등록</a>
+</div>
 
 <table class="table table-bordered table-condensed">
     <thead>
@@ -47,24 +49,20 @@ int pageCount = (int)Math.ceil((double)recordCount / pageSize); // 올림
     <tbody>
         <% for (Student student : list) { %>
             <tr>
-                <td><%= student.getId() %></td>
+                <td><%= student.getId() %></td>	  
                 <td><%= student.getStudentNumber() %></td>
-                <td><%= student.getName() %></td>
+                <td><a href="studentEdit1.jsp?id=<%= student.getId()%>">
+                      <%= student.getName() %></a>
+                </td>
                 <td><%= student.getDepartmentName() %></td>
                 <td><%= student.getYear() %></td>
-                
             </tr>
         <% } %>
     </tbody>
 </table>
-
-<% if (currentPage > 1) { %>
-    <a class="btn btn-default" href="studentList2.jsp?pg=<%= currentPage-1 %>"> &lt; </a>
-<% } %>
-<% if (currentPage < pageCount) { %>
-    <a class="btn btn-default" href="studentList2.jsp?pg=<%= currentPage+1 %>"> &gt; </a>
-<% } %>
+<my:pagination pageSize="<%= pageSize %>" recordCount="<%= recordCount %>" queryStringName="pg" />
 
 </div>
 </body>
 </html>
+

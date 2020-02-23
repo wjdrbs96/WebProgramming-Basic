@@ -11,7 +11,7 @@ import java.util.List;
 public class StudentDAO {
 	
 	public static Student createStudent(ResultSet resultSet) throws SQLException {
-		 Student student = new Student();
+		Student student = new Student();
         student.setId(resultSet.getInt("id"));
         student.setStudentNumber(resultSet.getString("studentNumber"));
         student.setName(resultSet.getString("name"));
