@@ -4,8 +4,8 @@
 
 * JSP Basic
 * Input Forms 
+* Create, Read, Update, Delete 
 
 
 ### JDBC
 
-* Data list look Up 
