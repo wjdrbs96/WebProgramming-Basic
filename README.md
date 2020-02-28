@@ -4,8 +4,13 @@
 
 * JSP Basic
 * Input Forms 
-* Create, Read, Update, Delete 
-
 
 ### JDBC
+
+* Create, Read, Update, Delete 
+* SQL 
+
+
+## 게시판 만들기 
+
 
