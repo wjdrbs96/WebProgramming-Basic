@@ -1,4 +1,5 @@
 # Web Programming Studying
+       🌱SpringBoot 기초를 공부합니다
 
 ### JSP
 
@@ -8,9 +9,8 @@
 ### JDBC
 
 * Create, Read, Update, Delete 
-* SQL 
+* Mysql SQL 
 
 
-## 게시판 만들기 
 
 

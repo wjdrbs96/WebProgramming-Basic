@@ -28,6 +28,7 @@ if (pg != null) {
       thead th { background-color: #eee; }
       table.table { width: 700px; }
   </style>
+  
 </head>
 <body>
 
