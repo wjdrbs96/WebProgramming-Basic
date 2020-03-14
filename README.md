@@ -1,5 +1,5 @@
 # Web Programming Studying
-       🌱SpringBoot 기초를 공부합니다
+    🌱JSP, JDBC 기초를 공부합니다
 
 ### JSP
 
